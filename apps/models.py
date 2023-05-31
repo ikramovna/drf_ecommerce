@@ -1,5 +1,5 @@
 from django.db.models import Model, TextField, CharField, IntegerField, ForeignKey, ImageField, CASCADE, TextChoices, \
-    DateTimeField, ManyToManyField, EmailField
+    DateTimeField, EmailField
 
 from django.utils.translation import gettext_lazy as _
 from mptt.fields import TreeForeignKey
@@ -58,13 +58,10 @@ class Category(MPTTModel, Model):
 class New(Model):
     title = CharField(max_length=255)
     description = TextField()
+    comment = ForeignKey('apps.Comment', on_delete=CASCADE)
     image = ImageField(upload_to='news/')
     created_at = DateTimeField(auto_now_add=True)
     user = ForeignKey('auth.User', default='auth.User', on_delete=CASCADE)
-    comment = ForeignKey('apps.Comment', on_delete=CASCADE)
-
-    def __str__(self):
-        return self.title
 
 
 class Card(Model):
@@ -86,10 +83,8 @@ class Subscribe(Model):
 
 
 class Option(Model):
-    brand = CharField(max_length=50)
-    season = CharField(max_length=50)
-    color = CharField(max_length=50)
-    fit = CharField(max_length=50)
+    brand = CharField(max_length=50),
+    season = CharField(max_length=50),
+    color = CharField(max_length=50),
+    fit = CharField(max_length=50),
     size = CharField(5)
-
-

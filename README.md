@@ -41,7 +41,7 @@ Several functionalities are available through this application:
 
 ## Feedback
 
-Feel free to send me feedback on [file an issue](https://github.com/ZokirjonovaMuslima/drf_-ecommerce/issues/new). If you wish to contribute, please feel free to do so!
+Feel free to send me feedback on [file an issue](https://github.com/ZokirjonovaMuslima/drf_ecommerce/issues/new). If you wish to contribute, please feel free to do so!
 
 
 

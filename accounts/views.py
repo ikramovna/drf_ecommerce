@@ -6,6 +6,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from accounts.services import register_service, reset_password_service, reset_password_confirm_service
 
 
+# Register API
 class RegisterAPIView(APIView):
     def post(self, request):
         response = register_service(request.data)
@@ -14,6 +15,8 @@ class RegisterAPIView(APIView):
         return Response(response, status=405)
 
 
+# Reset Password API
+
 class ResetPasswordAPIView(APIView):
     def post(self, request):
         responce = reset_password_service(request)
@@ -21,6 +24,8 @@ class ResetPasswordAPIView(APIView):
             return Response({'message': 'sent'})
         return Response(responce, status=404)
 
+
+# Reset Password Confirm API
 
 class PasswordResetConfirmAPIView(APIView):
 
@@ -31,6 +36,8 @@ class PasswordResetConfirmAPIView(APIView):
         return Response(response, status=400)
 
 
+# Logout API
+
 class LogoutAPIView(APIView):
     permission_classes = (IsAuthenticated,)
 
@@ -38,3 +45,5 @@ class LogoutAPIView(APIView):
         token = RefreshToken(request.user)
         token.blacklist()
         return Response(status=200)
+
+# User Order API

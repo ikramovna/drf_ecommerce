@@ -26,6 +26,9 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ('title', 'price')
 
 
+admin.site.register(Product, ProductAdmin)
+
+
 class ProductImageAdmin(admin.ModelAdmin):
     list_display = ['image', 'product']
 
